@@ -1,0 +1,2 @@
+Payroll manager that aims to be an easy company profile and financial management tool that can be used to monitor and automate some everyday company tasks.
+From creating a new employee profile and monitoring employee attendance to handling employee leave requests and managing salary processes.

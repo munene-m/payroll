@@ -1,0 +1,54 @@
+
+
+.login-bg{
+    
+    background-size: cover;
+    background-size: cover;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow-y: scroll;
+}
+
+
+.login-section {
+    padding: 5em 0;
+}
+
+.welcome-text, .login-wrap{
+    z-index: 1111;
+}
+.login-wrap {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+    box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24); 
+    
+}
+.login-wrap h3 {
+    font-weight: 300;
+}
+.login-wrap .icon {
+    width: 80px;
+    height: 80px;
+    background: #1089ff;
+    border-radius: 50%;
+    font-size: 30px;
+    margin: 0 auto;
+    margin-bottom: 10px; 
+}
+.login-wrap .icon i {
+    color: #fff;
+    text-align: center;
+    height: auto;
+}
+
+.login-section .heading-section {
+    font-size: 30px;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #fff, 0 0 2px #fff, 0 0 1px #fff, 0 0 10px #00b5f1, 0 0 8px #00b5f1, 0 0 5px #00b5f1, 0 0 3px #00b5f1, 0 0 3px #00b5f1;
+}

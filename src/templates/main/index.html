@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div id="hero" class="hero overlay">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Your story begins from here.</h1>
+            <p>Your clients on the internet. Learn how to receive them.</p>
+            <a href="/accounts/login/" class="btn btn-border">Login</a>
+        </div><!-- /.hero-text -->
+    </div><!-- /.hero-content -->
+</div><!-- /.hero -->
+{% endblock content %}

@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/utils.css' %}">
+{% endblock head %}
+
+{% block content %}
+<div class="row">
+        <div class="col-lg-3">
+            <div class="vertical-nav bg-white" id="sidebar">
+                <div class="py-4 px-3 mb-4 bg-light">
+                    <div class="media d-flex align-items-center"><img src="{% static 'images/logo.png' %}" alt="..." width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                    <div class="media-body mx-3">
+                        <h4 class="m-0">{{request.user}}</h4>
+                    </div>
+                    </div>
+                </div>
+                
+                <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+                
+                <ul class="nav flex-column bg-white mb-0">
+                    <li class="nav-item">
+                    <a href="{% url 'shop:dashboard' %}" class="nav-link text-dark font-italic active">
+                                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                                Employees
+                            </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{% url 'shop:leave-list' %}" class="nav-link text-dark font-italic">
+                                <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                                Leave
+                            </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="#" class="nav-link text-dark font-italic">
+                                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                                Attendance
+                            </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="{% url 'shop:pay' %}" class="nav-link text-dark font-italic">
+                                <i class="far fa-image mr-3 text-primary fa-fw" ></i>
+                                Payroll
+                            </a>
+                    </li>
+                </ul>
+                <hr class="mt-4">
+                <ul class="nav flex-column bg-white mb-0">
+                    <li class="nav-item">
+                    <a href="/accounts/logout" class="nav-link text-dark font-italic">
+                                <i class="fa fa-sign-out mr-3 text-primary fa-fw" ></i>
+                                Log out
+                            </a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    
+        <div class="col-lg-9">  
+            <div class="col-lg-12 px-3">
+                    <div class="row mt-4">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                <i class="mdi mdi-account-alert text-warning icon-lg"></i>
+                                </div>
+                                <div class="float-right">
+                                <p class="mb-0 text-right">Administrators</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0">{{ admin_count }}</h3>
+                                </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mt-3 mb-0">
+                                <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Administrators
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                <i class="mdi mdi-home text-success icon-lg"></i>
+                                </div>
+                                <div class="float-right">
+                                <p class="mb-0 text-right">Departments</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0">0</h3>
+                                </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mt-3 mb-0">
+                                <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Available Departments
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
+                            <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                <i class="mdi mdi-account-multiple text-info icon-lg"></i>
+                                </div>
+                                <div class="float-right">
+                                <p class="mb-0 text-right">Employees</p>
+                                <div class="fluid-container">
+                                    <h3 class="font-weight-medium text-right mb-0">{{employee_count}}</h3>
+                                </div>
+                                </div>
+                            </div>
+                            <p class="text-muted mt-3 mb-0">
+                                <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Employee's Total Count
+                            </p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-lg-12">
+                    <div class="page-content " id="content">
+                        {% block dashboard %}
+                            
+                        {% endblock dashboard %}
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content holder -->
+    
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    $(function() {
+        // Sidebar toggle behavior
+        $('#sidebarCollapse').on('click', function() {
+        $('#sidebar, #content').toggleClass('active');
+        });
+    });
+</script>
+{% endblock scripts %}

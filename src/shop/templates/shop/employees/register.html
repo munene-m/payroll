@@ -1,0 +1,42 @@
+{% extends 'shop/dashboard.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block dashboard %}
+
+
+
+<!-- Demo header-->
+{% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}  
+<hr class="mt-5">
+<section class="pb-5 header text-center mt-3">
+    <div class="container ">
+        <div class="row">
+            <p class="lead text-center "><i class="fa fa-edit">&emsp; </i>Add Employee </p>
+            <div class="col-lg-12 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5 m-0">
+                        {% comment %} Form {% endcomment %}
+                        <div class="col-md-6 mx-auto">
+                        <form method="POST" class="form text-primary"> 
+                            {% csrf_token %}    
+                                {{ form|crispy }}  
+                                <br>
+                            <input type="submit" class="btn btn-rounded btn-outline-success"  value="submit"/>
+                        </form>  
+                    </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock dashboard %}
